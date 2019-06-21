@@ -2,11 +2,11 @@ class TabLink {
   constructor(tabElement){
     // assign this.tabElement to the tabElement DOM reference
     this.tabElement = tabElement;
-    console.log(tabElement)
+    // console.log(tabElement)
     
     // Get the `data-tab` value from this.tabElement and store it here
     this.tabData = tabElement.dataset.tab; 
-    console.log(this.tabData)
+    // console.log(this.tabData)
     
     // We need to find out if a user clicked 'all' cards or a specific category.  
     // Follow the instructions below to accomplish this task:    
@@ -55,7 +55,6 @@ class TabCard {
   constructor(cardElement){
     // Assign this.cardElement to the cardElement DOM reference
     this.cardElement = cardElement;
-    console.log('Display!', cardElement.display)
   }
   selectCard(){
     // Update the style of this.cardElement to display = "flex"
@@ -75,4 +74,4 @@ class TabCard {
 */
 let tabs = document.querySelectorAll('.tab');
 tabs.forEach(tab => new TabLink(tab));
-console.log(tabs);
+// console.log(tabs);
