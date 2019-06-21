@@ -1,8 +1,11 @@
 class Carousel {
     constructor(element) {
         this.element = element;
+        this.allImage = element.querySelectorAll('img');
+        console.log(this.allImage.length);
         this.natureImage = element.querySelector('img');
-        this.imgIndex = this.natureImage.dataset;
+        this.imgIndex = parseInt(this.natureImage.dataset.imgIndex);
+        console.log(this.imgIndex);
         this.leftButton = element.querySelector('.left-button')
         this.rightButton = element.querySelector('.right-button')
         console.log(element);
@@ -14,13 +17,33 @@ class Carousel {
         this.rightButton.addEventListener('click', () => this.rotateRight())
     }
     rotateLeft() {
-        
         this.natureImage.style.display = 'none';
-        this.
+        this.imgIndex -= 1;
+        console.log(this.imgIndex);
+        if(this.imgIndex < 1) {
+            this.imgIndex = this.allImage.length;
+            console.log(this.element.querySelector(`img[data-img-index='${this.imgIndex}']`));
+            this.natureImage = this.element.querySelector(`img[data-img-index='${this.imgIndex}']`);
+            this.natureImage.style.display = 'flex';
+        } else {
+            this.natureImage = this.element.querySelector(`img[data-img-index='${this.imgIndex}']`);
+            this.natureImage.style.display = 'flex';
+        }
+        
     }
     rotateRight () {
-        
         this.natureImage.style.display = 'none';
+        this.imgIndex += 1;
+        console.log(this.imgIndex);
+        if(this.imgIndex > this.allImage.length) {
+            this.imgIndex = 1;
+            console.log(this.element.querySelector(`img[data-img-index='${this.imgIndex}']`));
+            this.natureImage = this.element.querySelector(`img[data-img-index='${this.imgIndex}']`);
+            this.natureImage.style.display = 'flex';
+        } else {
+            this.natureImage = this.element.querySelector(`img[data-img-index='${this.imgIndex}']`);
+            this.natureImage.style.display = 'flex';
+        }
     }
 
 }
