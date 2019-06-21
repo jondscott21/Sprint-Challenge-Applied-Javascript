@@ -19,7 +19,8 @@ class Carousel {
     rotateLeft() {
         this.natureImage.style.display = 'none';
         this.imgIndex -= 1;
-        console.log(this.imgIndex);
+
+        // Checks to see if we have gone over the existing number of images and restarts if we have
         if(this.imgIndex < 1) {
             this.imgIndex = this.allImage.length;
             console.log(this.element.querySelector(`img[data-img-index='${this.imgIndex}']`));
@@ -32,16 +33,21 @@ class Carousel {
         
     }
     rotateRight () {
+        // this.natureImage.classList.add('.fade');
         this.natureImage.style.display = 'none';
         this.imgIndex += 1;
-        console.log(this.imgIndex);
+
+        // Checks to see if we have gone over the existing number of images and restarts if we have
         if(this.imgIndex > this.allImage.length) {
             this.imgIndex = 1;
             console.log(this.element.querySelector(`img[data-img-index='${this.imgIndex}']`));
             this.natureImage = this.element.querySelector(`img[data-img-index='${this.imgIndex}']`);
+            // this.natureImage.classList.remove('.fade')
             this.natureImage.style.display = 'flex';
         } else {
+            console.log(this.element.querySelector(`img[data-img-index='${this.imgIndex}']`));
             this.natureImage = this.element.querySelector(`img[data-img-index='${this.imgIndex}']`);
+            // this.natureImage.classList.remove('.fade')
             this.natureImage.style.display = 'flex';
         }
     }
